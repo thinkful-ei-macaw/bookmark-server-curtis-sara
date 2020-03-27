@@ -5,3 +5,5 @@ const bookmarks = [{
   description: 'this is a bookmark',
   rating: '4',
 }]
+
+module.exports = bookmarks

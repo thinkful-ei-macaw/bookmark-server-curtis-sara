@@ -10,6 +10,7 @@ const parser = express.json()
 bookmarkRouter
   .route("/bookmark")
   .get((req, res) => {
+    console.log(bookmarks)
       res.json(bookmarks)
   })
 // POST /bookmarks that accepts a JSON object representing a bookmark and adds it to the list of bookmarks after validation
@@ -63,10 +64,9 @@ bookmarkRouter
   .get((req, res) => {
     
     const { id } = req.params
-
-    const bookmark = bookmarks.find(item => {
-      item.id == id
-    })
+    console.log(bookmarks.id)
+    const bookmark =
+      bookmarks.find(item => item.id == id)
 
     if (!bookmark) {
       logger.error(`Bookmark with id ${id} not found`)
@@ -100,3 +100,5 @@ bookmarkRouter
       .status(204)
       .end()
   })
+
+  module.exports = bookmarkRouter
